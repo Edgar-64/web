@@ -55,7 +55,7 @@ a:hover {
   transform: translateX(4px);
 }
 
-#font-semibold {
+.font-semibold {
   font-weight: 600;
 }
 

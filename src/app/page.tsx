@@ -1,10 +1,18 @@
+"use client"; // Diz ao Next.js que este componente usa JavaScript no navegador
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion"; // Importa o motor de animações
 
 export default function Home() {
   return (
     <div>
-      <main>
+      {/* O motion.main faz a página surgir suavemente */}
+      <motion.main
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <div id="inicio">
           <h1>Bem-vindo ao Meu Site</h1>
           <p>
@@ -32,35 +40,39 @@ export default function Home() {
               </details>
               
               <div className="mt-4 flex flex-col gap-2">
-                <a
+                {/* Os links agora têm efeito hover animado via JavaScript */}
+                <motion.a
+                  whileHover={{ scale: 1.02, x: 5 }}
                   href="https://github.com/elt0n2022/Painel-azul"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#3593ff]"
                 >
                   🔗 Painel-azul
-                </a>
-                <a
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.02, x: 5 }}
                   href="https://github.com/Edgar-64/azul_financas-mobile"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#3593ff]"
                 >
                   🔗 azul_financas-mobile
-                </a>
-                <a
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.02, x: 5 }}
                   href="https://github.com/Edgar-64/Api"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#3593ff]"
                 >
                   🔗 Api
-                </a>
+                </motion.a>
               </div>
             </div>
           </details>
         </div>
-      </main>
+      </motion.main>
 
       <div className="w-full flex justify-center mt-8">
         <Link href="/">
