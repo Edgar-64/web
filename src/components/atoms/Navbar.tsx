@@ -1,4 +1,4 @@
-'use client'; // Necessário para usar hooks como usePathname
+'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -7,7 +7,6 @@ import Image from 'next/image';
 export default function Navbar() {
   const pathname = usePathname();
 
-  // Função auxiliar para aplicar a cor se o link estiver ativo
   const linkStyle = (path: string) => 
     pathname === path ? 'text-blue-400 font-semibold' : 'hover:text-blue-400 transition-colors';
 
@@ -16,12 +15,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="text-xl font-bold">
           <Link href="/">
-          <Image 
+            <Image 
               src="/logo.png"      
               alt="Logo do Meu Site" 
               width={70}              
-              height={0}              
+              height={70} // Definimos uma altura base padrão (visto que o Next.js exige height se não usar layout fill)
+              style={{ height: 'auto' }} // <-- Garante que a altura mude proporcionalmente ao width=70
               className="object-contain"
+              priority // Logotipos na navbar também se beneficiam de carregamento prioritário
             />
           </Link>
         </div>

@@ -36,7 +36,6 @@ export default function Sobre() {
         <div id="Meu Plano" className="mt-6">
           <h2>Meu Plano de Vida</h2>
 
-          {/* O JavaScript vai controlar a entrada suave de cada bloco */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -190,8 +189,6 @@ export default function Sobre() {
             </details>
           </motion.div>
         </div>
-
-        {/* ... Resto do código de Tecnologias e Contato igual ... */}
       </motion.main>
 
       <div className="w-full flex justify-center mt-8">
@@ -201,7 +198,8 @@ export default function Sobre() {
             alt="Logo do Meu Site"
             width={1000}
             height={300}
-            className="object-contain"
+            className="object-contain h-auto" // <-- Correção da proporção
+            priority // <-- Correção para o aviso de LCP
           />
         </Link>
       </div>

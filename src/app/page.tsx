@@ -1,13 +1,12 @@
-"use client"; // Diz ao Next.js que este componente usa JavaScript no navegador
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion"; // Importa o motor de animações
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <div>
-      {/* O motion.main faz a página surgir suavemente */}
       <motion.main
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -40,7 +39,6 @@ export default function Home() {
               </details>
               
               <div className="mt-4 flex flex-col gap-2">
-                {/* Os links agora têm efeito hover animado via JavaScript */}
                 <motion.a
                   whileHover={{ scale: 1.02, x: 5 }}
                   href="https://github.com/elt0n2022/Painel-azul"
@@ -81,7 +79,8 @@ export default function Home() {
             alt="Logo do Meu Site"
             width={1000}
             height={300}
-            className="object-contain"
+            className="object-contain h-auto" // <-- Correção da proporção
+            priority // <-- Correção para o aviso de LCP
           />
         </Link>
       </div>
