@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+}
+
+/* Animações Configuradas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes smoothOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplicação das Animações Globais */
+main {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px #0000008f;
+  /* Toda a página principal surge suavemente ao carregar */
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+img {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+a {
+  margin-left: 5px;
+  text-decoration: none;
+  display: inline-block; /* Necessário para o efeito de mover funcionar */
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efeito Hover interativo nos links do GitHub */
+a:hover {
+  color: #da2020 !important;
+  transform: translateX(4px);
+}
+
+#font-semibold {
+  font-weight: 600;
+}
+
+p {
+  margin-left: 5px;
+  font-family: sans-serif;
+  color: #6e6e6e;
+}
+
+h1 {
+  padding: 5px;
+  margin: 5px;
+  margin-left: 0px;
+  font-size: 30px;
+  color: #da2020;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px #0000008f;
+  font-family: impact, sans-serif;
+  font-style: italic;
+}
+
+h2 {
+  padding: 5px;
+  margin: 5px;
+  margin-left: 0px;
+  font-size: 20px;
+  color: #da2020;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px #0000008f;
+  font-family: impact, sans-serif;
+  font-style: italic;
+}
+
+.navbar {
+  background-image: linear-gradient(to right, #ff0000, #292929, #2b99e2);
+}
+
+details {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px #0000008f;
+  font-family: arial;
+}
+
+/* Suavização de abertura do conteúdo do details */
+details[open] {
+  animation: smoothOpen 0.35s ease-in-out;
+}
+
+details summary {
+  margin-left: 5px;
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none; /* Remove a seta nativa nos navegadores Webkit */
+}
+
+details summary::before {
+  margin-right: 8px;
+}
